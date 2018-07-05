@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { connect } from 'react-redux';
+import { addTodoAction, addName } from './actions';
+import {Header, Search} from './components';
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <React.Fragment>
+        <Header/>
+        <main>
+        {this.props.search && <Search/>}
+          <p> Hello</p>
+          <input type="text" onChange={(e)=>this.props.onChangeText(e.target.value)}/>
+          <button onClick={()=> this.props.onAddClick(this.props.name)}>add</button>
+          <ul>
+            {this.props.todolist.map((x,i)=>(<li key={i}>{x}</li>))}
+          </ul>
+        </main>
+        <footer></footer>
+      </React.Fragment>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    todolist: state.todo,
+    name: state.name,
+    search: state.searchstatus
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddClick: (text = 'hello') => dispatch(addTodoAction(text)),
+    onChangeText: (name = 'hello') => dispatch(addName(name))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
