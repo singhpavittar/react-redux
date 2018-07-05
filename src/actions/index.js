@@ -15,8 +15,10 @@ import {
 } from './header';
 
 import {
-    searchText,
-    SEARCHTEXT
+    setSearchText,
+    SEARCHTEXT,
+    getSearchList,
+    SEARCHLIST
 } from './search';
 
 export {
@@ -30,6 +32,8 @@ export {
     disableTodoAction,
     enableSearch,
     ENABLESEARCH,
-    searchText,
-    SEARCHTEXT
+    setSearchText,
+    SEARCHTEXT,
+    getSearchList,
+    SEARCHLIST
 };

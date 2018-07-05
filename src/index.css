@@ -7,7 +7,7 @@
     margin: 0;
 }
 
-.form-group .search-input{
+.form-group .search-input {
     border: 0px;
     border-bottom: 1px solid;
     border-radius: 0;
@@ -17,6 +17,15 @@
     font-size: 50px;
 }
 
-.form-group .search-input:focus{
+.form-group .search-input:focus {
     box-shadow: none;
+}
+
+.search-result-image {
+    width: 200px;
+}
+
+.search-container {
+    height: 100vh;
+    overflow: scroll;
 }
