@@ -29,7 +29,7 @@ class Header extends PureComponent {
                             <a href="#home">Brand</a>
                         </Navbar.Brand>
                     </Navbar.Header>
-                    <Nav pullRight>
+                    <Nav pullRight className="pull-right">
                         <NavItem eventKey={1} href="" onClick={()=>this.props.enableSearch(!this.props.search)}>
                             {!this.props.search?'Search':'X'}
                         </NavItem>

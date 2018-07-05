@@ -65,10 +65,15 @@ class Search extends Component {
                             {this.state.loading && (<Col xs={12} className="text-center">
                                 <p>loading...</p>
                             </Col>)}
-                            <Col xs={12} className="search-container">
-                                {this.props.searchList && this.props.searchList.map((search,i) => (<Row key={i}>
-                                    <Col xs={12}>
-                                        <Image alt={search.info.artist} src={search.info.thumb} responsive />
+                            <Col xs={12} className="search-container col-centered">
+                                {this.props.searchList && this.props.searchList.map((search,i) => (<Row key={i} className="bg-white search-result-box-shadow m20">
+                                    <Col xs={12} className="p0">
+                                        <Image alt={search.info.artist} src={search.info.thumb} responsive className="p5 search-result-image pull-left"/>
+                                        <div className="pull-left ml-10 h100">
+                                            <p>{search.info.track}</p>
+                                            <p>{search.info.artist}</p>
+                                        </div>
+                                        <Button bsStyle="primary" className="search-add-btn">Add</Button>
                                     </Col>
                                 </Row>))}
                             </Col>

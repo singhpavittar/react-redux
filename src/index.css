@@ -1,3 +1,8 @@
+html, body {
+    height: 100%;
+    widows: 100%;
+}
+
 .search {
     position: absolute;
     top: 52px;
@@ -5,6 +10,7 @@
     width: 100%;
     height: calc(100vh - 52px);
     margin: 0;
+    z-index: 1;
 }
 
 .form-group .search-input {
@@ -22,10 +28,91 @@
 }
 
 .search-result-image {
-    width: 200px;
+    width: 100px;
 }
 
 .search-container {
-    height: 100vh;
+    height: calc(100vh - 189px);
     overflow: scroll;
+}
+
+.col-centered {
+    float: none;
+    margin: auto;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+.jumbotron p {
+    font-size: 15px;
+    margin: 15px;
+}
+
+.ptb-5 {
+    padding: 5px 0px;
+}
+
+.disable-table {
+    display: table;
+}
+
+.disable-table-cell {
+    display: table-cell;
+}
+
+.vertical-middle {
+    vertical-align: middle;
+}
+
+.p0 {
+    padding: 0px;
+}
+
+.p5 {
+    padding: 5px;
+}
+
+.search-result-box-shadow {
+    box-shadow: 0px 0px 4px -1px black;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.m10 {
+    margin: 10px;
+}
+
+.m20 {
+    margin: 20px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.h100 {
+    height: 100px;
+}
+
+.search-add-btn {
+    height: 100px;
+    width: 90px;
+    float: right;
+    border-radius: 0;
 }
