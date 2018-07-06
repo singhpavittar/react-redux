@@ -22,7 +22,7 @@ import {
     setSearchText,
     addToPlaylist
 } from '../actions';
-
+import SearchListing from './searchlisting'
 class Search extends Component {
 
     constructor(props) {
@@ -57,7 +57,7 @@ class Search extends Component {
             this.setState({loading:false});
         }
       }
-      addIteams(search){
+      addIteams = (search) => {
         let playlist = this.props.playlist;
           let isExit = playlist.find(x=> x._id === search._id);
           if (!isExit) {
@@ -81,20 +81,9 @@ class Search extends Component {
                                 <p>loading...</p>
                             </Col>)}
                             <Col xs={12} className="search-container col-centered">
-                                {this.props.searchList && this.props.searchList.map((search,i) => (<Row key={i} className="repaeted">
-                                    <Col xs={12} className="">
-                                    <div className="bg-white search-result-box-shadow">
-                                        <Image alt={search.info.artist} src={search.info.thumb} responsive className="p5 search-result-image pull-left"/>
-                                        <div className="pull-left ml-10 h100">
-                                            <h3>{search.info.track}</h3>
-                                            <p>{search.info.artist}</p>
-                                        </div>
-                                        <Button bsStyle="primary" className="search-add-btn" onClick={()=>this.addIteams(search)}>
-                                          <FontAwesome name='plus'/>
-                                        </Button>
-                                        </div>
-                                    </Col>
-                                </Row>))}
+                                {this.props.searchList && this.props.searchList.map((search,i) => (
+                                  <SearchListing key={i} searchItem={search} playlist={this.props.playlist} addIteams={this.addIteams}/>
+                              ))}
                             </Col>
                         </Row>
                     </Grid>

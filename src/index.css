@@ -7,6 +7,7 @@ body {
     background: url('https://www.coinslot.co.uk/wp-content/uploads/2017/01/2506-review-nsm-music-background.jpg');
       background-size: cover;
       background-position: center;
+      background-attachment: fixed;
 }
 
 .search {
@@ -245,7 +246,7 @@ span.expand{
     transition: all ease-in-out 1s;
     transform: translateX(-100%);
 }
-.search-container .row.repaeted{
+.search-container .row.repeated{
     transition: all ease-in-out 2s;
     transform: translateX(0);
 }
