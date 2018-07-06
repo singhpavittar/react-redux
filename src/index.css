@@ -9,7 +9,7 @@ body {
     top: 50px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 52px);
+    height: calc(100vh - 50px);
     margin: 0;
     background: linear-gradient(141deg, #474998 0%, #5f7b96 51%, #91999c 75%);
     z-index: 1;
@@ -130,7 +130,7 @@ body {
 
 .translate-0 {
     transition:all ease-in-out 1s;
-    height: calc(100vh - 52px);
+    height: calc(100vh - 50px);
     opacity: 1;
     visibility: visible;
 }

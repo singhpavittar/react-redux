@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux';
 
-import {todo, name} from './counter';
+import {playlist} from './playlist';
 import {searchstatus} from './header';
 import {searchtext, searchlist} from './search';
 
 export default combineReducers({
-    todo,
-    name,
+    playlist,
     searchstatus,
     searchtext,
     searchlist
