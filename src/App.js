@@ -16,7 +16,7 @@ class App extends Component {
         <Header/>
         <main>
           <Search enable={this.props.search}/>
-          {(this.props.playlist.length != 0) && <Playlist playlist={this.props.playlist}/>}
+          {(this.props.playlist.length != 0 && !this.props.search) && <Playlist playlist={this.props.playlist}/>}
           {!this.props.playlist.length &&  <React.Fragment>
               <a href="javascript:void(0)" className="homeSearch" onClick={()=>this.props.enableSearch(true)}>
                 <OverlayTrigger placement="bottom" overlay={this._tooltip}>

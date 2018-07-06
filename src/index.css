@@ -137,14 +137,14 @@ body {
 }
 
 .translate-0 {
-    transition:all ease-in-out 1s;
+    transition:all ease-in-out .5s;
     height: calc(100vh - 50px);
     opacity: 1;
     visibility: visible;
 }
 
 .translate-1 {
-    transition: all ease-in-out 1s;
+    transition: all ease-in-out .5s;
     height: 0;
     opacity: 0;
     visibility: hidden;
