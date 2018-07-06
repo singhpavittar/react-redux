@@ -47,14 +47,21 @@ class Search extends Component {
       }
       
       _onChange = (text) => {
-        this.setState({loading:true});
         this.props.setSearchText(text);
-        this.fetchAsync();
+        if (text.length) {
+            this.fetchAsync();  
+            this.setState({loading:true});
+        } else {
+            this.props.setSearchList();   
+            this.setState({loading:false});
+        }
       }
 
     render() {
+        console.log(this.props);
+        
         return ( 
-                <Jumbotron className="search">
+                <Jumbotron className={this.props.enable ? 'search translate-0' : 'search translate-1 vhidden'}>
                     <Grid>
                         <Row>
                             <Col xs={12}>
@@ -66,14 +73,16 @@ class Search extends Component {
                                 <p>loading...</p>
                             </Col>)}
                             <Col xs={12} className="search-container col-centered">
-                                {this.props.searchList && this.props.searchList.map((search,i) => (<Row key={i} className="bg-white search-result-box-shadow m20">
-                                    <Col xs={12} className="p0">
+                                {this.props.searchList && this.props.searchList.map((search,i) => (<Row key={i} className="">
+                                    <Col xs={12} className="">
+                                    <div className="bg-white search-result-box-shadow">
                                         <Image alt={search.info.artist} src={search.info.thumb} responsive className="p5 search-result-image pull-left"/>
                                         <div className="pull-left ml-10 h100">
                                             <p>{search.info.track}</p>
                                             <p>{search.info.artist}</p>
                                         </div>
                                         <Button bsStyle="primary" className="search-add-btn">Add</Button>
+                                        </div>
                                     </Col>
                                 </Row>))}
                             </Col>

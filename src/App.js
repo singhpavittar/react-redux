@@ -9,7 +9,8 @@ class App extends Component {
       <React.Fragment>
         <Header/>
         <main>
-          {this.props.search && <Search/>}
+          {/* {this.props.search && } */}
+          <Search enable={this.props.search}/>
           <Playlist todolist={this.props.todolist}/>
         </main>
         <footer></footer>
