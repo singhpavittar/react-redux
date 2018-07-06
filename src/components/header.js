@@ -12,7 +12,9 @@ import {
 } from 'react-bootstrap';
 
 import {
-    enableSearch
+    getSearchList,
+    enableSearch,
+    setSearchText
 } from '../actions';
 import FontAwesome from 'react-fontawesome';
 
@@ -21,6 +23,13 @@ import {
 } from 'react-redux';
 
 class Header extends PureComponent {
+
+    handleClick(){
+        this.props.setSearchText();
+        this.props.setSearchList();
+        this.props.enableSearch(!this.props.search);
+    }
+
     render() {
         return (
             <header>
@@ -31,7 +40,7 @@ class Header extends PureComponent {
                         </Navbar.Brand>
                     </Navbar.Header>
                     <Nav pullRight className="pull-right">
-                        <NavItem eventKey={1} href="" onClick={()=>this.props.enableSearch(!this.props.search)}>
+                        <NavItem eventKey={1} href="" onClick={()=>this.handleClick()}>
                             {!this.props.search?<FontAwesome name='search'/>:<FontAwesome name='times'/>}
                         </NavItem>
                     </Nav>
@@ -49,7 +58,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        enableSearch: (isEnable = false) => dispatch(enableSearch(isEnable))
+        enableSearch: (isEnable = false) => dispatch(enableSearch(isEnable)),
+        setSearchList: (data = []) => dispatch(getSearchList(data)),
+        setSearchText: (text = '') => dispatch(setSearchText(text))
     }
 };
 

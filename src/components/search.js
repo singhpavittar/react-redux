@@ -58,15 +58,13 @@ class Search extends Component {
       }
 
     render() {
-        console.log(this.props);
-
         return (
                 <Jumbotron className={this.props.enable ? 'search translate-0' : 'search translate-1 vhidden'}>
                     <Grid>
                         <Row>
                             <Col xs={12}>
                                 <FormGroup controlId="formValidationSuccess1" validationState="success">
-                                    <FormControl type="text" className="search-input" placeholder="Search..." onChange={(e)=>this._onChange(e.target.value)} />
+                                    <FormControl type="text" className="search-input" placeholder="Search..." value={this.props.searchText} onChange={(e)=>this._onChange(e.target.value)} />
                                 </FormGroup>
                             </Col>
                             {this.state.loading && (<Col xs={12} className="text-center">

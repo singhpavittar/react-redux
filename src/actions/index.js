@@ -1,13 +1,7 @@
 import {
-    ADDTODO,
-    ADDNAME,
-    REMOVETODO,
-    DISABLETODO,
-    addTodoAction,
-    addName,
-    removeTodoAction,
-    disableTodoAction
-} from './counter';
+    ADDITEM,
+    addToPlaylist
+} from './playlist';
 
 import {
     enableSearch,
@@ -22,14 +16,8 @@ import {
 } from './search';
 
 export {
-    ADDTODO,
-    ADDNAME,
-    REMOVETODO,
-    DISABLETODO,
-    addTodoAction,
-    addName,
-    removeTodoAction,
-    disableTodoAction,
+    ADDITEM,
+    addToPlaylist,
     enableSearch,
     ENABLESEARCH,
     setSearchText,

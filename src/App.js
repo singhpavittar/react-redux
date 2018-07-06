@@ -9,9 +9,8 @@ class App extends Component {
       <React.Fragment>
         <Header/>
         <main>
-          {/* {this.props.search && } */}
           <Search enable={this.props.search}/>
-          <Playlist todolist={this.props.todolist}/>
+          <Playlist todolist={this.props.playlist}/>
         </main>
         <footer></footer>
       </React.Fragment>
@@ -20,7 +19,10 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {search: state.searchstatus}
+  return {
+    search: state.searchstatus,
+    playlist: state.playlist
+  }
 };
 
 export default connect(mapStateToProps)(App);
