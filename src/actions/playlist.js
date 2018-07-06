@@ -1,8 +1,8 @@
 export const ADDITEM = 'ADD_ITEM';
 
-export const addToPlaylist = (text) => {
+export const addToPlaylist = (data) => {
     return {
         type: ADDITEM,
-        text
+        data
     }
 };

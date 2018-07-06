@@ -19,7 +19,8 @@ import {
 import {
     enableSearch,
     getSearchList,
-    setSearchText
+    setSearchText,
+    addToPlaylist
 } from '../actions';
 
 class Search extends Component {
@@ -56,6 +57,15 @@ class Search extends Component {
             this.setState({loading:false});
         }
       }
+      addIteams(search){
+        let playlist = this.props.playlist;
+          let isExit = playlist.find(x=> x.id=== search.id);
+          if (!isExit) {
+              this.props.addToPlaylist(search);
+          }else {
+            alert('Already added to playlist');
+          }
+      }
 
     render() {
         return (
@@ -79,7 +89,7 @@ class Search extends Component {
                                             <h3>{search.info.track}</h3>
                                             <p>{search.info.artist}</p>
                                         </div>
-                                        <Button bsStyle="primary" className="search-add-btn">
+                                        <Button bsStyle="primary" className="search-add-btn" onClick={()=>this.addIteams(search)}>
                                           <FontAwesome name='plus'/>
                                         </Button>
                                         </div>
@@ -98,6 +108,7 @@ const mapStateToProps = (state) => {
         search: state.searchstatus,
         searchText: state.searchtext,
         searchList: state.searchlist,
+        playlist:state.playlist
     }
 };
 
@@ -105,7 +116,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         enableSearch: (isEnable = false) => dispatch(enableSearch(isEnable)),
         setSearchText: (text = '') => dispatch(setSearchText(text)),
-        setSearchList: (data = []) => dispatch(getSearchList(data))
+        setSearchList: (data = []) => dispatch(getSearchList(data)),
+        addToPlaylist: (data = {}) => dispatch(addToPlaylist(data))
     }
 };
 

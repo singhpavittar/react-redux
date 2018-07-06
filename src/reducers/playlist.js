@@ -5,9 +5,9 @@ import {
 const playlist = (state = [], action) => {
     switch (action.type) {
         case ADDITEM:
-            return [...state, [{
-                data: action.data
-            }]];
+            return [...state, {
+                ...action.data
+            }];
         default:
             return state;
     }

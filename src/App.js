@@ -10,7 +10,7 @@ class App extends Component {
         <Header/>
         <main>
           <Search enable={this.props.search}/>
-          <Playlist todolist={this.props.playlist}/>
+          <Playlist playlist={this.props.playlist}/>
         </main>
         <footer></footer>
       </React.Fragment>
