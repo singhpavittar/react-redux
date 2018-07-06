@@ -7,7 +7,7 @@ import FontAwesome from 'react-fontawesome';
 class App extends Component {
 
   _tooltip  = (<Tooltip id="tooltip">
-  <strong>Create Playlist</strong> 
+  <strong>Create Playlist</strong>
 </Tooltip>);
 
   render() {
@@ -20,7 +20,7 @@ class App extends Component {
           {!this.props.playlist.length &&  <React.Fragment>
               <a href="javascript:void(0)" className="homeSearch" onClick={()=>this.props.enableSearch(true)}>
                 <OverlayTrigger placement="bottom" overlay={this._tooltip}>
-                  <FontAwesome name="search"/>
+                  <FontAwesome name="search-plus"/>
                 </OverlayTrigger>
               </a>
             </React.Fragment>}

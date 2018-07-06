@@ -1,10 +1,12 @@
 html,
 body {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     font-family: 'Noto Serif', serif;
     font-size: 14px;
-    background: linear-gradient(141deg, rgb(216, 224, 239) 0%, #e9eef3 51%, #e0ecff 75%);
+    background: url('https://www.coinslot.co.uk/wp-content/uploads/2017/01/2506-review-nsm-music-background.jpg');
+      background-size: cover;
+      background-position: center;
 }
 
 .search {
@@ -212,13 +214,17 @@ body {
     transition: all ease-in-out 1s;
     z-index: 12;
 }
-
+a.homeSearch span{
+    animation: bounce 5s infinite;
+    animation-play-state: running;
+}
 a.homeSearch, span.expand{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    font-size: 40px;
+    font-size: 60px;
+    color: #424329;
 }
 span.expand{
     color: #fff;
@@ -236,10 +242,26 @@ span.expand{
     transition: all ease-in-out 1s;
 }
 .search-container .row{
-    transition: all ease-in-out 5s;
+    transition: all ease-in-out 1s;
     transform: translateX(-100%);
 }
 .search-container .row.repaeted{
-    transition: all ease-in-out 20s;
+    transition: all ease-in-out 2s;
     transform: translateX(0);
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes bounce {
+    0%   {transform: scale(0);}
+    25%  {transform: scale(1.5);}
+    50%  {transform: scale(0);}
+    100% {transform: scale(1.5);}
+}
+
+/* Standard syntax */
+@keyframes bounce {
+  0%   {transform: scale(1);}
+  25%  {transform: scale(1.5);}
+  50%  {transform: scale(1);}
+  75% {transform: scale(1.5);}
+  100% {transform: scale(1);}
 }
