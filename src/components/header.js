@@ -14,6 +14,7 @@ import {
 import {
     enableSearch
 } from '../actions';
+import FontAwesome from 'react-fontawesome';
 
 import {
     connect
@@ -31,7 +32,7 @@ class Header extends PureComponent {
                     </Navbar.Header>
                     <Nav pullRight className="pull-right">
                         <NavItem eventKey={1} href="" onClick={()=>this.props.enableSearch(!this.props.search)}>
-                            {!this.props.search?'Search':'X'}
+                            {!this.props.search?<FontAwesome name='search'/>:<FontAwesome name='times'/>}
                         </NavItem>
                     </Nav>
                 </Navbar>

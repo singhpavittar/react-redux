@@ -11,7 +11,7 @@ import {
     Col,
     Image
 } from 'react-bootstrap';
-
+import FontAwesome from 'react-fontawesome';
 import {
     connect
 } from 'react-redux';
@@ -37,30 +37,30 @@ class Search extends Component {
         // only proceed once promise is resolved
         let data = await response.json();
         // only proceed once second promise is resolved
-        
+
         if (data && data.success) {
-            this.props.setSearchList(data.data);    
+            this.props.setSearchList(data.data);
         } else {
             this.props.setSearchList();
         }
         this.setState({loading:false});
       }
-      
+
       _onChange = (text) => {
         this.props.setSearchText(text);
         if (text.length) {
-            this.fetchAsync();  
+            this.fetchAsync();
             this.setState({loading:true});
         } else {
-            this.props.setSearchList();   
+            this.props.setSearchList();
             this.setState({loading:false});
         }
       }
 
     render() {
         console.log(this.props);
-        
-        return ( 
+
+        return (
                 <Jumbotron className={this.props.enable ? 'search translate-0' : 'search translate-1 vhidden'}>
                     <Grid>
                         <Row>
@@ -78,10 +78,12 @@ class Search extends Component {
                                     <div className="bg-white search-result-box-shadow">
                                         <Image alt={search.info.artist} src={search.info.thumb} responsive className="p5 search-result-image pull-left"/>
                                         <div className="pull-left ml-10 h100">
-                                            <p>{search.info.track}</p>
+                                            <h3>{search.info.track}</h3>
                                             <p>{search.info.artist}</p>
                                         </div>
-                                        <Button bsStyle="primary" className="search-add-btn">Add</Button>
+                                        <Button bsStyle="primary" className="search-add-btn">
+                                          <FontAwesome name='plus'/>
+                                        </Button>
                                         </div>
                                     </Col>
                                 </Row>))}

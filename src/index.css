@@ -1,7 +1,10 @@
 html,
 body {
     height: 100%;
-    widows: 100%;
+    width: 100%;
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+
 }
 
 .search {
@@ -13,6 +16,7 @@ body {
     margin: 0;
     background: linear-gradient(141deg, #474998 0%, #5f7b96 51%, #91999c 75%);
     z-index: 1;
+    padding: 20px 0;
 }
 
 .form-group .search-input {
@@ -125,7 +129,8 @@ body {
 .search-add-btn {
     margin-left: auto;
     border-radius: 0;
-    padding: 0 32px;
+    padding: 0 30px;
+    font-size: 25px;
 }
 
 .translate-0 {
@@ -150,3 +155,9 @@ body {
     transition:all ease-in-out 1.3s;
 }
 .navbar-default{background:#000;border:0;border-radius: 0;}
+.navbar-default .navbar-nav>li>a .fa{
+  font-size: 18px;
+}
+.bg-white p{
+  margin: 0
+}
