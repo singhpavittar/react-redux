@@ -59,10 +59,10 @@ class Search extends Component {
       }
       addIteams(search){
         let playlist = this.props.playlist;
-          let isExit = playlist.find(x=> x.id=== search.id);
+          let isExit = playlist.find(x=> x._id === search._id);
           if (!isExit) {
               this.props.addToPlaylist(search);
-          }else {
+          } else {
             alert('Already added to playlist');
           }
       }
