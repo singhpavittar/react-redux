@@ -81,7 +81,7 @@ class Search extends Component {
                                 <p>loading...</p>
                             </Col>)}
                             <Col xs={12} className="search-container col-centered">
-                                {this.props.searchList && this.props.searchList.map((search,i) => (<Row key={i} className="">
+                                {this.props.searchList && this.props.searchList.map((search,i) => (<Row key={i} className="repaeted">
                                     <Col xs={12} className="">
                                     <div className="bg-white search-result-box-shadow">
                                         <Image alt={search.info.artist} src={search.info.thumb} responsive className="p5 search-result-image pull-left"/>

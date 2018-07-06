@@ -4,7 +4,7 @@ body {
     width: 100%;
     font-family: 'Noto Serif', serif;
     font-size: 14px;
-
+    background: linear-gradient(141deg, rgb(216, 224, 239) 0%, #e9eef3 51%, #e0ecff 75%);
 }
 
 .search {
@@ -160,4 +160,86 @@ body {
 }
 .bg-white p{
   margin: 0
+}
+.playlist-item{
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.46);
+    transition: all ease-in-out 1s;
+    border:0;
+    overflow: hidden;
+    position: relative;
+}
+.playlist-item .item-overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.42);
+    width: 100%;
+    height: 100%;
+    transition: all ease-in-out 1s;
+    opacity: 0;
+    visibility: hidden;
+}
+.playlist-item:hover .item-overlay{
+    opacity: .7;
+    visibility: visible;
+    transition: all ease-in-out 1s;
+}
+.playlist-item img{
+    transform: scale(1);
+    transition: all ease-in-out 1s;
+}
+.playlist-item:hover img{
+    transform: scale(2);
+    transition: all ease-in-out 1s;
+}
+.playlist-item .downLoad {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: orange;
+    border-radius: 100%;
+    padding: 15px 19px;
+    color: #fff;
+    transform: translate3d(42px, -62px, -135px);
+    visibility: hidden;
+    opacity: 0;
+    transition: all ease-in-out 1s;
+}
+.playlist-item:hover .downLoad{
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    opacity: 1;
+    transition: all ease-in-out 1s;
+    z-index: 12;
+}
+
+a.homeSearch, span.expand{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+}
+span.expand{
+    color: #fff;
+    z-index: 15;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: all ease-in-out 1s;
+    font-size: 90px;
+    color: rgba(255, 255, 255, 0.72);
+}
+.playlist-item:hover span.expand{
+    visibility: hidden;
+    opacity: 1;
+    transition: all ease-in-out 1s;
+}
+.search-container .row{
+    transition: all ease-in-out 5s;
+    transform: translateX(-100%);
+}
+.search-container .row.repaeted{
+    transition: all ease-in-out 20s;
+    transform: translateX(0);
 }
