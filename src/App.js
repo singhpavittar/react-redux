@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addTodoAction, addName, enableSearch} from './actions';
-import {Header, Search, Playlist} from './components';
+import {enableSearch, addToPlay} from './actions';
+import {Header, Search, Playlist, Player} from './components';
 import {Tooltip, OverlayTrigger} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 class App extends Component {
@@ -16,9 +16,10 @@ class App extends Component {
         <Header/>
         <main>
           <Search enable={this.props.search}/>
-          {(this.props.playlist.length != 0 && !this.props.search) && <Playlist playlist={this.props.playlist}/>}
+          {this.props.videoId && <Player videoId={this.props.videoId} />}
+          {(this.props.playlist.length !== 0 && !this.props.search) && <Playlist playlist={this.props.playlist} addToPlay={this.props.addToPlay}/>}
           {!this.props.playlist.length &&  <React.Fragment>
-              <a href="javascript:void(0)" className="homeSearch" onClick={()=>this.props.enableSearch(true)}>
+              <a className="homeSearch pointer" onClick={()=>this.props.enableSearch(true)}>
                 <OverlayTrigger placement="bottom" overlay={this._tooltip}>
                   <FontAwesome name="search-plus"/>
                 </OverlayTrigger>
@@ -32,14 +33,18 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
+
   return {
     search: state.searchstatus,
     playlist: state.playlist,
+    videoId: state.player || 'UCYVinkwSX7szARULgYpvhLw'
   }
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-      enableSearch: (isEnable = false) => dispatch(enableSearch(isEnable))
+      enableSearch: (isEnable = false) => dispatch(enableSearch(isEnable)),
+      addToPlay: (id = '') => dispatch(addToPlay(id))
   }
 };
 

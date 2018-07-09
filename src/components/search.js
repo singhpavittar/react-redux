@@ -3,15 +3,12 @@ import React, {
 } from 'react';
 import {
     Jumbotron,
-    Button,
     FormGroup,
     FormControl,
     Grid,
     Row,
-    Col,
-    Image
+    Col
 } from 'react-bootstrap';
-import FontAwesome from 'react-fontawesome';
 import {
     connect
 } from 'react-redux';
@@ -32,15 +29,16 @@ class Search extends Component {
         }
     }
 
-    async fetchAsync () {
+    async fetchAsync (text) {
         // await response of fetch call
-        let response = await fetch('https://imabhi.herokuapp.com/yt/tp');
+        let response = await fetch(`https://mp3tube1.herokuapp.com/youtube/search?q=${text}`);
+        // let response = await fetch('https://imabhi.herokuapp.com/yt/tp');
         // only proceed once promise is resolved
         let data = await response.json();
         // only proceed once second promise is resolved
 
-        if (data && data.success) {
-            this.props.setSearchList(data.data);
+        if (data) {
+            this.props.setSearchList(data);
         } else {
             this.props.setSearchList();
         }
@@ -50,7 +48,7 @@ class Search extends Component {
       _onChange = (text) => {
         this.props.setSearchText(text);
         if (text.length) {
-            this.fetchAsync();
+            this.fetchAsync(text);
             this.setState({loading:true});
         } else {
             this.props.setSearchList();
@@ -59,7 +57,7 @@ class Search extends Component {
       }
       addIteams = (search) => {
         let playlist = this.props.playlist;
-          let isExit = playlist.find(x=> x._id === search._id);
+          let isExit = playlist.find(x=> x.id === search.id);
           if (!isExit) {
               this.props.addToPlaylist(search);
           } else {
@@ -80,11 +78,11 @@ class Search extends Component {
                             {this.state.loading && (<Col xs={12} className="text-center">
                                 <p>loading...</p>
                             </Col>)}
-                            <Col xs={12} className="search-container col-centered">
-                                {this.props.searchList && this.props.searchList.map((search,i) => (
+                            {(this.props.searchList.length !==0) && <Col xs={12} className="search-container col-centered">
+                                {this.props.searchList.map((search,i) => (
                                   <SearchListing key={i} searchItem={search} playlist={this.props.playlist} addIteams={this.addIteams}/>
                               ))}
-                            </Col>
+                            </Col>}
                         </Row>
                     </Grid>
                 </Jumbotron>

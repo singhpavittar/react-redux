@@ -5,9 +5,6 @@ import React, {
 import {
     Navbar,
     Nav,
-    Button,
-    FormControl,
-    FormGroup,
     NavItem
 } from 'react-bootstrap';
 
@@ -33,10 +30,10 @@ class Header extends PureComponent {
     render() {
         return (
             <header>
-                <Navbar>
+                <Navbar fixedTop>
                     <Navbar.Header className="pull-left">
                         <Navbar.Brand>
-                            <a href="#home">Brand</a>
+                            <a>Playlist</a>
                         </Navbar.Brand>
                     </Navbar.Header>
                     <Nav pullRight className="pull-right">

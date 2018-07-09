@@ -4,6 +4,11 @@ import {
 } from './playlist';
 
 import {
+    PLAYITEM,
+    addToPlay
+} from './player';
+
+import {
     enableSearch,
     ENABLESEARCH
 } from './header';
@@ -23,5 +28,7 @@ export {
     setSearchText,
     SEARCHTEXT,
     getSearchList,
-    SEARCHLIST
+    SEARCHLIST,
+    addToPlay,
+    PLAYITEM
 };
