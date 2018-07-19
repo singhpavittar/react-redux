@@ -20,6 +20,8 @@ import {
     addToPlaylist
 } from '../actions';
 import SearchListing from './searchlisting'
+
+import debounce from 'lodash/debounce';
 class Search extends Component {
 
     constructor(props) {
@@ -27,6 +29,8 @@ class Search extends Component {
         this.state = {
             loading: false
         }
+        this.fetchAsync = debounce(this.fetchAsync,500);
+
     }
 
     async fetchAsync (text) {

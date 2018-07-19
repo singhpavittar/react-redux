@@ -15,10 +15,14 @@ class App extends Component {
       <React.Fragment>
         <Header/>
         <main>
+          {/* Search container */}
           <Search enable={this.props.search}/>
-          {this.props.videoId && <Player videoId={this.props.videoId} />}
-          {(this.props.playlist.length !== 0 && !this.props.search) && <Playlist playlist={this.props.playlist} addToPlay={this.props.addToPlay}/>}
-          {!this.props.playlist.length &&  <React.Fragment>
+            {/* Player */}
+            {this.props.videoId && <Player videoId={this.props.videoId} playlist={this.props.playlist} />}
+            {/* Playlist */}
+            {(this.props.playlist.length !== 0 && !this.props.search) && <Playlist playlist={this.props.playlist} addToPlay={this.props.addToPlay}/>}
+            {/* Search */}
+            {!this.props.playlist.length &&  <React.Fragment>
               <a className="homeSearch pointer" onClick={()=>this.props.enableSearch(true)}>
                 <OverlayTrigger placement="bottom" overlay={this._tooltip}>
                   <FontAwesome name="search-plus"/>
@@ -34,11 +38,11 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   console.log(state);
-
+  
   return {
     search: state.searchstatus,
     playlist: state.playlist,
-    videoId: state.player || 'UCYVinkwSX7szARULgYpvhLw'
+    videoId: state.videoId
   }
 };
 const mapDispatchToProps = (dispatch) => {

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import {playlist} from './playlist';
-import {player} from './player';
+import {videoId} from './player';
 import {searchstatus} from './header';
 import {searchtext, searchlist} from './search';
 
@@ -10,5 +10,5 @@ export default combineReducers({
     searchstatus,
     searchtext,
     searchlist,
-    player
+    videoId
 })

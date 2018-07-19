@@ -6,6 +6,7 @@ class PlaylistItem extends Component {
         return (
             <Thumbnail className="playlist-item" src={this.props.item.thumbnails.high.url || this.props.item.thumbnails.medium.url || this.props.item.thumbnails.default.url} alt={this.props.item.title}>
                 <h3>{this.props.item.title}</h3>
+                <p>{this.props.item.id}</p>
                 <p>{this.props.item.description}</p> 
                 <span className="expand"><FontAwesome name="arrows-alt"/></span>  
                 <a className="downLoad" href={this.props.item.link}><FontAwesome name="download"/></a>
